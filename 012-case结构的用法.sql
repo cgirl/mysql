@@ -1,0 +1,15 @@
+/*
+	CASE的用法
+*/
+CREATE PROCEDURE p10()
+BEGIN
+	DECLARE pos INT DEFAULT 0;
+	SET pos := FLOOR(RAND()*5);
+	CASE pos
+		WHEN 1 THEN SELECT '仍然在飞';
+		WHEN 2 THEN SELECT '掉到海里了';
+		WHEN 3 THEN SELECT '已经落地';
+		ELSE SELECT '不知道跑到哪里去了';
+	END CASE;
+END;
+CALL p10();
