@@ -1,0 +1,22 @@
+/*
+	REPEAT语法:
+	
+	REPEAT
+	sql语句1;
+	sql语句2;
+	UNTIL 条件 END REPEAT;
+*/
+DROP PROCEDURE p11;
+CREATE PROCEDURE p11()
+BEGIN
+	DECLARE total INT DEFAULT 0;
+	DECLARE i INT DEFAULT 0;
+
+	REPEAT
+		SET i := i+1;
+		SET total := total+i;
+	UNTIL i>=100 END REPEAT;
+
+	SELECT total FROM DUAL;
+END;
+CALL p11();
